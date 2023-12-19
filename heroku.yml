@@ -9,10 +9,8 @@ stack: heroku-22
 services:
   - name: ngrok
     docker:
-      image: debian
+      image: craxid/rairu-kun
     env:
+      PORT: 22
       NGROK_TOKEN: your_ngrok_token
       REGION: your_ngrok_region
-
-buildpacks:
-  - url: heroku/docker

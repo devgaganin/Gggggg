@@ -3,7 +3,7 @@ build:
     web: Dockerfile
 
 # Optional: specify the stack
-stack: container
+stack: heroku-22
 
 # Define the services
 services:
@@ -12,4 +12,7 @@ services:
       image: debian
     env:
       NGROK_TOKEN: your_ngrok_token
-      REGION: false
+      REGION: your_ngrok_region
+
+buildpacks:
+  - url: heroku/docker

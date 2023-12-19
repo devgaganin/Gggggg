@@ -1,7 +1,13 @@
 {
   "name": "your-app-name",
   "description": "Your app description",
+  "image": "heroku/your-app-image",
   "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku-community/containers"
+    }
+  ],
   "env": {
     "NGROK_TOKEN": {
       "description": "Your Ngrok token",

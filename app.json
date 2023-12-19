@@ -1,0 +1,19 @@
+{
+  "name": "your-app-name",
+  "description": "Your app description",
+  "addons": [],
+  "env": {
+    "NGROK_TOKEN": {
+      "description": "Your Ngrok token",
+      "required": true
+    },
+    "REGION": {
+      "description": "Your Ngrok region",
+      "required": false,
+      "default": "ap"
+    }
+  },
+  "scripts": {
+    "postdeploy": "echo Your post-deploy script here"
+  }
+}

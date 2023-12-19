@@ -1,11 +1,6 @@
-# Use the Heroku-22 stack as the base image
-FROM heroku/heroku:22
-
-# Arguments
+FROM debian
 ARG NGROK_TOKEN
 ARG REGION=ap
-
-# Set non-interactive mode
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
@@ -27,8 +22,9 @@ RUN mkdir /run/sshd \
     && echo root:craxid | chpasswd \
     && chmod 755 /openssh.sh
 
-# Expose ports
-EXPOSE 80 443 3306 4040 5432 5700 5701 5010 6800 6900 8080 8888 9000
+# Remove the EXPOSE instruction
 
-# Run the SSH script
-CMD ["/openssh.sh"]
+# The CMD instruction is not necessary for Heroku; it dynamically assigns the port.
+
+# Heroku expects the container to bind to $PORT
+CMD ngrok tcp --authtoken ${NGROK_TOKEN} --region ${REGION} 22
